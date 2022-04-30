@@ -1,0 +1,22 @@
+* {margin: 0; padding: 0;}
+
+
+.tab-menu {}
+.tab-menu li {
+    display: inline-block; 
+    margin: 10px; 
+}
+.tab-menu li a {
+    display: block; 
+    background: #dbdbdb;
+    color: #333;
+    padding: 5px 15px; 
+    font-weight: bold; 
+    text-decoration: none;
+}
+.tab-menu li.active a {
+    background: #333;
+    color: #dbdbdb;
+}
+
+#tab-content > div {margin: 15px 10px;}

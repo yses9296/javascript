@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Animation</title>
+
+    <!-- css -->
+    <style>
+        .progress_wrap {
+            width: 800px;
+            height: 24px;
+            margin: 0 auto;
+            border: 1px solid #3498db;
+            border-radius: 13px;
+            position: relative;
+        }
+        .bar {
+            position: absolute;
+            left: 0; 
+            top: -1px;
+            bottom: 0;
+            width: 0;
+            height: 25px;
+            border-radius: 13px;
+            background: #3498db;
+        }
+        .progress_wrap span {
+            position: absolute;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            line-height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Animation</h1>
+    <h2></h2>
+    <div class="progress_wrap" data-num="45">
+        <div class="bar"></div>
+        <span>0</span>
+    </div>
+
+    <!-- javascript -->
+    <script>
+        /*
+            요소의 내용을 확인(반환)
+                글씨 let a = b.innerText;
+                tag let ab = b.innerHTML;
+            요소의 내용을 변경(지정)
+                글씨로 b.innerText = '새 값'
+                tag로 b.innerHTML = '새 값'
+        */
+        console.log(document.querySelector('h1').innerText);
+        console.log(document.querySelector('h1').innerHTML);
+
+        // document.querySelector('h2').innerText = 'New description';
+        document.querySelector('h2').innerHTML = '<a href="#">New Link</a>';
+
+        // console.log(document.querySelector('h2').innerText);
+        console.log(document.querySelector('h2').innerHTML);
+
+        let progessWrap = document.querySelector('.progress_wrap'),
+            progressBar = progessWrap.querySelector('.bar'),
+            progressRate = progessWrap.querySelector('span'),
+            initalRate = 0,
+            targetRate = progessWrap.getAttribute('data-num'),
+            valid = true;
+
+
+        /*
+            일정 시간이 지날때 마다 해야할 일 setInterval(할 일, 시간)
+            할 일 = 함수 = function(){...}
+            시간 1000 = 1s
+            스타일 변경 >> 대상.style.css속성명 = 값
+        */
+        function progress(){
+            initalRate++;
+            progressBar.style.width = '${initalRate}%';
+        }
+
+        let numAnimation = setInterval(function(){
+
+                initalRate++;
+                if(initalRate == targetRate){
+                    clearInterval(numAnimation);
+                }
+                progressBar.style.width = initalRate+"%";
+                progressRate.innerText = initalRate+"%";
+
+        }, 20);
+
+    </script>
+</body>
+</html>
