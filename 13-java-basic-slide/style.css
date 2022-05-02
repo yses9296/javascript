@@ -27,6 +27,8 @@ body{
     transition: left .3s ease-in;
 }
 blockquote {
+    width: 70%;
+    margin: 0 auto;
     color: #636363;
     font-weight: 300;
     font-style: italic;
@@ -64,14 +66,14 @@ cite {
 
 #prev {
     background-image: url(images/arrow-left-out.png); 
-    margin-left: -480px;
+    margin-left: -580px;
 }
 #prev:hover {
     background-image: url(images/arrow-left-over.png);
 }
 #next {
     background-image: url(images/arrow-rignt-out.png);
-    margin-left: 380px;
+    margin-left: 480px;
 }
 #next:hover {
     background-image: url(images/arrow-rignt-over.png);
