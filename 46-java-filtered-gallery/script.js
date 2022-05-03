@@ -26,3 +26,14 @@ for (const btn of btns){
         }
     });
 }
+
+//리스트 너비 조절 Range 스크립트
+const rangeInput = document.querySelector('input[type="range"]');
+
+rangeInput.addEventListener('input', function(){
+                                                                //this.value >> 이전 자바스크립트
+    document.documentElement.style.setProperty('--minRangeValue', `${this.value}px`)
+    //선택자.style.css 속성명 = 값
+    //선택자.style.backgroundColor = 'blue';
+    //선택자.setProperty('background-color', 'blue');
+});
