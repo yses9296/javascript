@@ -37,3 +37,63 @@ rangeInput.addEventListener('input', function(){
     //선택자.style.backgroundColor = 'blue';
     //선택자.setProperty('background-color', 'blue');
 });
+
+
+//검색키워드로 필터 적용
+const captions = document.querySelectorAll('.image-list figcaption p:first-child');
+const myArray = [];
+let counter = 1;
+
+for(const caption of captions){
+    myArray.push({
+        id:counter++,
+        text: caption.textContent
+    });
+}
+
+console.log(myArray);
+
+const searchInput = document.querySelector('input[type="search"]');
+const photoCounter = document.querySelector('.toolbar .counter span');
+
+searchInput.addEventListener('keyup', keyupHandler); //keyup, keydown, keypress...
+function keyupHandler(){
+    for (const item of imageListItems){
+        item.classList.add(dNone);
+    }
+
+    const keywords = this.value;
+
+    const filteredArray = myArray.filter(el => el.text.toLowerCase().includes(keywords.toLowerCase()));
+    console.log(filteredArray);
+
+    if(filteredArray.length > 0){
+        for(const el of filteredArray){
+            //.image-list li:nth-child(2)
+            //.image-list li:nth-child(el.id)
+            document.querySelector(`.image-list li:nth-child(${el.id})`).classList.remove(dNone);
+        }
+    }
+    photoCounter.textContent = filteredArray.length;
+}
+
+
+
+//filter
+/*
+var arr = [3, 15, 5, 28, 40];
+var arr2 = arr.filter(function(n){
+    return n % 5 == 0;
+});
+console.log(arr2);
+
+var arr = [3, 15, 5, 28, 40];
+var arr2 = arr.filter( n =>  {return n % 5 == 0;} );
+console.log(arr2);
+
+
+var arr = [3, 15, 5, 28, 40];
+var arr2 = arr.filter( n =>  n % 5 == 0 );
+console.log(arr2);
+
+*/
