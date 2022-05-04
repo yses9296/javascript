@@ -1,22 +1,26 @@
 * {margin: 0; padding: 0;}
 
 
-.tab-menu {}
+.tab-menu {padding-left: 0;}
 .tab-menu li {
     display: inline-block; 
     margin: 10px; 
+    list-style: none;
+    margin-right: 10px;
 }
 .tab-menu li a {
     display: block; 
     background: #dbdbdb;
     color: #333;
-    padding: 5px 15px; 
+    padding: 10px 20px; 
     font-weight: bold; 
     text-decoration: none;
+    text-transform: uppercase;
 }
-.tab-menu li.active a {
+.tab-menu li a.active  {
     background: #333;
     color: #dbdbdb;
 }
+#tab-content {min-height: 300px;}
+#tab-content > div {display: none; margin: 15px 10px;}
 
-#tab-content > div {margin: 15px 10px;}
