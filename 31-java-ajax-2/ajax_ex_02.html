@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<!-- Artist list -->
+<p id="demo">
+    
+</p>
+ 
+<script>
+var xhttp, xmlDoc, txt, x, i;
+xhttp = new XMLHttpRequest(); //사용자(클라이언트 - 브라우저)에서 서버로 요청
+xhttp.onreadystatechange = function(){ //서버 온전한지 확인 요청
+    if (this.readyState == 4 && this.status == 200) {
+        /*
+            to do: XML 파일의 Catalog > CD > Artist 값을 리스트로 가져오기
+        */
+        xmlDoc = this.responseXML; //cd_catalog.xml의 XML 형식으로 가져오기
+        txt = ''; //artist 리스트를 담을 text
+        x = xmlDoc.getElementsByTagName('ARTIST'); //XML 파일의 arttist 태그로 가져오기
+
+        for(i = 0; i < x.length; i++){
+            // case 1: 
+            //txt = txt + x[i].textContent + '</br>';
+
+            //case 2:
+            txt = txt + x[i].childNodes[0].nodeValue + '</br>';
+        }
+
+        document.getElementById('demo').innerHTML = txt;
+    
+    };
+}
+xhttp.open("GET", "cd_catalog.xml", true);
+xhttp.send();
+
+    
+</script>
+
+</body>
+</html>
