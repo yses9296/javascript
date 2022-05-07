@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<title></title>	
+<link rel="stylesheet" href="css/main.css">
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+</head>
+<body>
+
+<button id="aplay">Play music</button>
+<button id="apause">Pause music</button><br>
+<hr>
+<button id="vplay">Play video</button>
+<button id="vpause">Pause video</button>
+
+<video src="video/vivaldi.mp4" muted></video>
+<audio src="./audio/Honey_Bee_01_web.mp3" id="myAudio"></audio>
+
+
+<script>
+    var myAudio = document.getElementById('myAudio'),
+        playBtn = document.getElementById('aplay'),
+        pauseBtn = document.getElementById('apause');
+
+    function playAudio(){
+        myAudio.play();
+    }
+
+    function pauseAudio(){
+        myAudio.pause();
+    }
+
+    playBtn.addEventListener('click', playAudio());
+    pauseBtn.addEventListener('click', pauseAudio());
+
+    /* 
+    Autoplay policy in Chrome 문제로 재생 불가능
+    When the permissions policy for autoplay is disabled, calls to play() without a user gesture will reject the promise with a NotAllowedError DOMException. 
+    And the autoplay attribute will also be ignored.
+    */
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

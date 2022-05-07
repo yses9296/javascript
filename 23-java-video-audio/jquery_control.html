@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<title>Video Audio</title>	
+<link rel="stylesheet" href="css/main.css">
+
+<link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+</head>
+<body>
+
+<button id="aplay" onclick="playAudio()">Play music</button>
+<button id="apause" onclick="pauseAudio()">Pause music</button><br>
+<hr>
+<button id="vplay">Play video</button>
+<button id="vpause">Pause video</button>
+
+<video src="video/vivaldi.mp4" id="myVideo" muted controls></video>
+<audio src="audio/Honey_Bee_01_web.mp3" id="myAudio"></audio>
+
+<!-- video.js.com -->
+<video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="video/vivaldi.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+</video>
+
+<!-- script -->
+<script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+<script>
+    $(function(){
+        var myVideo = $('#myVideo');
+
+        $('#vplay').click(function(){
+            myVideo.get(0).play(); //jQuery는 get() 필수
+        });
+        $('#vpause').click(function(){
+            myVideo.get(0).pause();
+        });
+    })
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
