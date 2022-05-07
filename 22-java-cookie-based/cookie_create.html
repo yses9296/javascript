@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Factory</title>
+
+    <script>
+        /*todo
+            쿠키 생성
+            오늘날짜 + 7days >> 쿠키 소멸
+        */
+
+        var date = new Date();  // 현재 날짜 반환.
+        var newDate = date.getDate() + 7;  //월일시 중 일을 가져와 7일 더하기
+        date.setDate(newDate);  // 변수.날짜 지정  변수.setDate(새로운 날짜)
+
+        var setCookie = '';
+        setCookie += 'CookieName = ABC;';   //세미콜론 필수 넣기! 이후 데이터 이어쓸 때 한 문장으로 오해하지 않게 
+        setCookie += 'expired = '+ date.toUTCString();  //cookie expire 날짜 넣을 때 UTC 시간으로 변환 후 넣기 **
+
+        // console.log(setCookie);
+
+        document.cookie = setCookie;
+
+    </script>
+</head>
+<body>
+    
+
+
+</body>
+</html>

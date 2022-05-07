@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Cookie</title>
+
+    <style>
+        .notice {
+            position: fixed;
+            padding: 20px;
+            border: 1px solid #ccc;
+            top: 100px;
+            left: 100px;
+        }
+        button {
+            position: fixed;
+            border: 1px solid #999;
+            background-color: #dbdbdb;
+            padding: 5px 10px;
+            top: 300px;
+            left: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div class="notice">
+        Notice
+    </div>
+    <button onclick="deleteCookie();">Delete Cookie</button>
+
+    <!-- script -->
+    <script>
+        //Check Cookie
+        var currentCookie = document.cookie;
+        var cookieCheck = currentCookie.indexOf('ABC');
+
+        console.log(currentCookie);
+        console.log(cookieCheck);
+
+        if(cookieCheck > -1){
+            document.querySelector('.notice').style.display = 'none';
+        }
+        else {
+            document.querySelector('.notice').style.display = 'block';
+        }
+
+        //Create Cookie
+        var date = new Date();  // 현재 날짜 반환.
+        var newDate = date.getDate() + 7;  //월일시 중 일을 가져와 7일 더하기
+        date.setDate(newDate);  // 변수.날짜 지정  변수.setDate(새로운 날짜)
+
+        var setCookie = '';
+        setCookie += 'CookieName = ABC;';   //세미콜론 필수 넣기! 이후 데이터 이어쓸 때 한 문장으로 오해하지 않게 
+        setCookie += 'expires = '+ date.toUTCString();  //cookie expire 날짜 넣을 때 UTC 시간으로 변환 후 넣기 **
+
+        document.cookie = setCookie;
+
+        //Delete Cookie
+        function deleteCookie(){
+            var date = new Date();
+            var expireDate = (date.getDate() - 1);
+            date.setDate(expireDate);
+            console.log("delete function - "+date);
+
+            var setCookie = '';
+            setCookie += 'CookieName = ABC;'; 
+            setCookie += 'expires = '+ date.toUTCString();
+
+            document.cookie = setCookie;
+        }
+    </script>
+</body>
+</html>
