@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Number Animation</title>
+    <style>
+        .num_animation {
+            width: 100px;
+            padding: 20px;
+            font-size: 3em;
+            margin: 0 auto;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="num_animation" data-rate="90"></div>
+
+    <!-- javascript -->
+    <script>
+        var numAnimation = document.querySelector('.num_animation');
+        var targetRate = numAnimation.getAttribute('data-rate');
+        var num = 0;
+
+        var timer = setInterval(function(){
+            ++num;
+            numAnimation.innerHTML = num;
+
+            //data-num에서 setInterval 멈추기
+            if (num == targetRate){
+                clearInterval(timer);
+            }
+
+        }, 10);
+    </script>
+</body>
+
+</html>

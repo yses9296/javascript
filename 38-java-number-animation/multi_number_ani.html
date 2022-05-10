@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Number Animation</title>
+    <style>
+        .num_animation {
+            width: 100px;
+            padding: 20px;
+            font-size: 3em;
+            margin: 0 auto;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="num_animation" data-rate="90">0</div>
+    <div class="num_animation" data-rate="60">0</div>
+    <div class="num_animation" data-rate="40">0</div>
+
+    
+    <!-- javascript -->
+    <script>
+        var numAnimation = document.querySelectorAll('.num_animation');
+        
+        numAnimation.forEach((item,index) => {
+            changeNum(index)
+            /*
+            var targetRate = item.getAttribute('data-rate');
+            var num = 0;
+            var timer = setInterval(function(){
+                ++num;
+                item.innerHTML = num;
+
+                if (num == targetRate){
+                    clearInterval(timer);
+                }
+            }, 10);
+            */
+        });
+
+        function changeNum(idx){
+            var num = 0;
+            var targetRate = numAnimation[idx].getAttribute('data-rate');
+            var timer = setInterval(function(){
+                ++num;
+                numAnimation[idx].innerHTML = num;
+
+                if (num == targetRate){
+                    clearInterval(timer);
+                }
+            }, 10);
+        }
+
+
+    </script>
+</body>
+
+</html>
