@@ -25,7 +25,7 @@ function initSlider(){
         let label = document.createElement('label');
         //<label for="slide-radio-1">1</label>
         label.setAttribute('for', `slide-radio-${i}`);
-        label.innerHTML = i;
+        // label.innerHTML = i;
         paginationContainer.prepend(label);
     }
     //자동슬라이드
