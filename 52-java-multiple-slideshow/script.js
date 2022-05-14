@@ -69,3 +69,28 @@ function moveSlide(index){
         },600);
     }
 }
+
+
+//javascript 53 - 자동 슬라이드 기능 구현
+//clearInterval 
+var timer = undefined;
+function autoSlide(){
+    if(timer == undefined){
+        timer = setInterval(function(){
+            moveSlide(currentIndex + 1);
+        },3000);
+    }
+}
+function stopSlide(){
+    clearInterval(timer);
+    timer = undefined;
+}
+
+autoSlide();
+
+slides.addEventListener('mouseenter', function(){
+    stopSlide()
+});
+slides.addEventListener('mouseleave', function(){
+    autoSlide();
+});
