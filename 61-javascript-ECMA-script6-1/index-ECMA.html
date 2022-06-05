@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMA Script 6 #1</title>
+</head>
+<body>
+    <h1>Template String - 템플릿 문자열</h1>
+    <div id="target"></div>
+
+
+    <script>
+        var str1 = 'hello';
+        var str2 = 'world';
+        var greeting = `${str1} ${str2}`;
+        document.write(greeting + '<hr/>');
+
+
+        var product = {name: '도서', price: '30,000원'};
+        //product.name
+        var msg = `제품 ${product.name}의 가격은 ${product.price} 입니다.`;
+        document.write(msg + '<hr/>');
+
+
+        var multiLine = '문자열1 \n 문자열2';
+        document.write(multiLine + '<hr/>');
+        console.log(multiLine) 
+        document.getElementById('target').innerText = multiLine;
+
+
+        var val1 = 1;
+        var val2 = 2;
+        var boolval = false;
+        var result1 = '곱셉의 결과는 ' + (val1 * val2) + '입니다.';
+        var result2 = 'Boolean 값은 ' + ( boolval ? 'True': 'False') + '입니다.';
+        // var result2 = 'Boolean 값은 ' + (boolval ? document.write('True') : document.write('False'));
+
+        document.write(result1 + '<br/>');
+        document.write(result2);
+    </script>
+    
+    
+</body>
+</html>
