@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMA Script 6 #2</title>
+</head>
+<body>
+    
+    <h1>let</h1>
+    <pre>
+        let
+        {  } scope 범위안에서만 활용할 변수 생성
+    </pre>
+
+    <script>
+        //변수, 함수 끌어올리기. hosting
+        /*
+        var lang = 'html';
+
+        function learnWeb(code){
+            var lang;
+            if(code){
+                var lang = '기초 언어';
+                return lang;
+            }
+
+            return lang;
+        }
+        document.write(learnWeb(false));
+        */
+
+        let lang = 'html';
+
+        function learnWeb(code){
+            if(code){
+                let lang = '기초 언어';
+                return lang;
+            }
+
+            return lang;
+        }
+        document.write(learnWeb(false));
+    </script>
+
+    <h1>const</h1>
+    <pre>
+        const 상수 - 변하지 않는, 변할 수 없는 값 지정
+        var 변수명 = 값
+        let 변수명 = 값
+        const 변수명 = 값
+    </pre>
+    <script>
+        var num1 = 1;
+        num1 = num1 + 100;
+        document.write(num1);
+
+        document.write('<br/>');
+
+        let num2 = 1;
+        num2 = num2 + 100;
+        document.write(num2);
+
+        document.write('<br/>');
+
+        const num3 = 1;
+        // num3 = num3 + 100; //ERROR
+        document.write(num3);
+    </script>
+</body>
+</html>
