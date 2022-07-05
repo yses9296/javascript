@@ -57,6 +57,19 @@
 
         document.cookie = setCookie;
 
+        //Delete Cookie
+        function deleteCookie(){
+            var date = new Date();
+            var expireDate = (date.getDate() - 1);
+            date.setDate(expireDate);
+            console.log("delete function - "+date);
+
+            var setCookie = '';
+            setCookie += 'CookieName = ABC;'; 
+            setCookie += 'expires = '+ date.toUTCString();
+
+            document.cookie = setCookie;
+        }
     </script>
 </body>
 </html>
