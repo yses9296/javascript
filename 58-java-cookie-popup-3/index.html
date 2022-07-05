@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC corp.</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        body {background: #999;}
+        main {
+            width: 80%; height: 100vh;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 20px;
+        }
+        .popup {
+            position: fixed;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #848484;
+            border: 1px solid #575757;
+            color: #fff;
+            padding: 20px 40px;
+            /* display: none; */
+        }
+        .popup h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .close {
+            width: 60px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1>ABC Corporation</h1>
+        <div class="popup">
+            <h2>Welcome</h2>
+    
+            <input type="checkbox" id="popup">
+            <label for="popup">Don't show again</label>
+            <button class="close">Close</button>
+        </div>
+    </main>
+
+
+    <script>
+        var myPopup = document.querySelector('.popup'),
+            checkBox = document.querySelector('#popup'),
+            popupClose = document.querySelector('.close');
+
+        //Set Cookie (init)
+        function setCookie(name, value, day){
+            var date = new Date();
+            date.setDate(date.getDate() + day);
+
+            var myCookie = '';
+            myCookie += name + '=' + value + ';'; 
+            myCookie += 'expires = '+ date.toUTCString();
+
+            document.cookie = myCookie;
+        }
+
+        //Delete Cookie
+        function deleteCookie(name){
+            var date = new Date();
+            var expireDate = (date.getDate() - 1);
+            date.setDate(expireDate);
+
+            var setCookie = '';
+            setCookie += name+'=Main;'; 
+            setCookie += 'expires = '+ date.toUTCString();
+
+            document.cookie = setCookie;
+        }
+        
+        //Check Cookie
+        function checkCookie(name){
+            var cookies = document.cookie.split(';');
+            var visited = false;
+
+            for (var i in cookies){
+                if (cookies[i].indexOf(name) > -1){
+                    visited = true;
+                }
+            }
+
+            if (visited){
+                myPopup.style.display = 'none';     //다음 접속시 창 닫기 (Cookie 존재 O)
+            }
+            else {
+                myPopup.style.display = 'block';    //다음 접속시 창 열기 (Cookie 존재 X)
+            }
+        }
+        checkCookie('ABC.com');
+
+
+        popupClose.addEventListener('click',function(){
+            if (checkBox.checked){
+                setCookie('ABC.com', 'Main', 3);    // (Cookie 저장 O), 다음 접속시 팝업 창 띄우기
+                myPopup.style.display = 'none';     //현재 팝업 창 닫기.
+            }
+            else {
+                deleteCookie('ABC.com');            //(Cookie 저장 X),  다음 접속시 팝업 창 띄우지 않기
+                myPopup.style.display = 'none';     //현재 팝업 창 닫기. 
+            }
+        })
+    </script>
+</body>
+</html>
