@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Cookie</title>
+    <script>
+
+        function setCookie(name, value, day){
+            var date = new Date();
+            date.setDate(date.getDate() + day);
+
+            var myCookie = '';
+            myCookie += name + '=' + value + ';';   //'CookieName = ABC;'; >> name+value
+            myCookie += 'expires = '+ date.toUTCString();
+
+            document.cookie = myCookie;
+        }
+
+        setCookie('ABCcorp', 'Main', 7);
+    </script>
+</head>
+<body>
+    <h2>This is ABC Corp Main Page</h2>
+</body>
+</html>
