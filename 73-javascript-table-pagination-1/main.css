@@ -23,7 +23,10 @@ body {
 #numbers > li > a {
     padding: 5px 10px;
 }
-
+#numbers > li > a.active {
+    background-color: #fff;
+    color: #333;
+}
 
 #my-table {
     margin-top: 10px;
