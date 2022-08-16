@@ -1,0 +1,51 @@
+/* reset */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+ol, ul, li {list-style: none;}
+a {display: block; text-decoration: none; color: #fff;}
+
+/* layout */
+body {
+    padding: 5px;
+}
+.pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #666;
+    color: #fff;
+    padding: 5px 0;
+}
+#numbers {
+    display: flex;
+    flex-direction: row;
+
+}
+#numbers > li > a {
+    padding: 5px 10px;
+}
+
+
+#my-table {
+    margin-top: 10px;
+}
+thead tr {
+    background-color: #555;
+    border: 2px solid #fff;
+    color: #fff;
+}
+thead tr th {
+    padding: 5px 30px;
+    text-align: left;
+}
+tbody tr {
+    border: 2px solid #fff;
+}
+tbody tr:nth-child(2n) {
+    background-color: #b9b9b9
+}
+tbody tr:nth-child(2n+1) {
+    background-color: #e3e3e3;
+}
+tbody tr td {
+    padding: 5px 10px;
+}
