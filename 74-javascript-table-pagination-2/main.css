@@ -3,6 +3,17 @@
 ol, ul, li {list-style: none;}
 a {display: block; text-decoration: none; color: #fff;}
 
+/* Table styles */
+td, th {
+    text-align: left;
+    padding: 0.5rem 1rem;
+}
+.col-1 {width: 5%;}
+.col-2 {width: 15%;}
+.col-3 {width: 35%;}
+.col-4 {width: 20%;}
+.col-5 {width: 10%;}
+
 /* layout */
 body {
     padding: 5px;
@@ -30,6 +41,7 @@ body {
 }
 
 #my-table {
+    width: 100%;
     margin-top: 10px;
 }
 thead tr {
@@ -38,7 +50,6 @@ thead tr {
     color: #fff;
 }
 thead tr th {
-    padding: 5px 30px;
     text-align: left;
 }
 tbody tr {
@@ -51,5 +62,4 @@ tbody tr:nth-child(2n+1) {
     background-color: #e3e3e3;
 }
 tbody tr td {
-    padding: 5px 10px;
 }
