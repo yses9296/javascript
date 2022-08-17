@@ -66,3 +66,9 @@ function displayRow(idx){
     }
     
 }//displayRow
+
+
+
+//default
+const init = numberBtn[0];
+init.click();
