@@ -22,12 +22,6 @@ numberBtn.forEach( (item, idx) => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
 
-        //active
-        for (nb of numberBtn){
-            nb.classList.remove('active');
-        }
-        e.target.classList.add('active');
-
         //table 
         displayRow(idx);
     });
@@ -64,6 +58,12 @@ function displayRow(idx){
     for (nr of newRows){
         nr.style.display = '';
     }
+    
+    //active
+    for (nb of numberBtn){
+        nb.classList.remove('active');
+    }
+    numberBtn[idx].classList.add('active');
     
 }//displayRow
 
