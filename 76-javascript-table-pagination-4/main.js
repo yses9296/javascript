@@ -44,7 +44,6 @@ numberBtn.forEach( (item, idx) => {
 
 
 function displayRow(idx){
-    console.log(idx);
     /* 
         idx 0: 
         100개 목록 
@@ -83,10 +82,10 @@ function displayRow(idx){
 }//displayRow
 
 
-
 //default
 const init = numberBtn[0];
 init.click();
+
 
 //페이지네이션 그룹 표시 함수
 function displayPage(num){
@@ -115,18 +114,35 @@ function displayPage(num){
         prevBtn.style.display = 'block';
         nextBtn.style.display = 'block';
     }
+
 }
-
-prevBtn.addEventListener('click', function(e){
-    // e.preventDefault();
-    pageActiveIdx--;
-    console.log(pageActiveIdx);
-})
-nextBtn.addEventListener('click', function(e){
-    // e.preventDefault();
-    pageActiveIdx++;
-    console.log(pageActiveIdx);
-})
+displayPage(0);  //default
 
 
-displayPage(0)
+// Next Previous Button 
+
+
+prevBtn.addEventListener('click', () => {
+    let nextPageNum = pageActiveIdx*maxPageNum - maxPageNum;
+    displayRow(nextPageNum);
+
+    --pageActiveIdx;
+
+    displayPage(pageActiveIdx);
+
+});
+nextBtn.addEventListener('click', () => {
+    let nextPageNum = pageActiveIdx*maxPageNum + maxPageNum; //0*3 + 3 displayRow에 3을 넘겨주는 식
+    displayRow(nextPageNum);
+
+    ++pageActiveIdx;
+
+    displayPage(pageActiveIdx);
+
+});
+
+/*
+123 - pageActiveIdx = 0, displayRow(3)
+456 - pageActiveIdx = 1, displayRow(6)
+789 - pageActiveIdx = 2, displayRow(9)
+*/
