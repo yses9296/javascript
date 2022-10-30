@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(N, stages) {
+
+            let stageNFailRate = [];
+
+            for (let stage = 1; stage <= N; stage++) {
+
+                const playerReached = stages.filter((player) => player >= stage).length; //스테이지에 도달한 사람 수
+                // console.log(playerReached)
+                const playerChallenging = stages.filter((player) => player === stage).length; //도달했지만 아직 도전중인 사람 수
+                // console.log(playerChallenging)
+                stageNFailRate.push([stage, playerChallenging / playerReached]); //[1 (스테이지), 1/8(실패율)]
+            }
+            stageNFailRate.sort((a, b) => b[1] - a[1]);
+            console.log(stageNFailRate)
+            console.log(stageNFailRate.map((stage) => stage[0]))
+            return stageNFailRate.map((stage) => stage[0]);
+        }
+
+        solution(5, [2, 1, 2, 6, 2, 4, 3, 3]) 
+        // solution(4, [4,4,4,4,4]) 
+    </script>
+</body>
+</html>

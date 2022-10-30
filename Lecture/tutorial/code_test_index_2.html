@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function solution(s, n) {
+            let answer = '';
+
+            s.split('').map( (v,i) => 
+                {
+                    if(v == ' ') answer+=' ';
+                
+                    else {
+                        // var str = v.charAt(i);
+                        let charCode = v.charCodeAt()
+                        console.log("Origin: "+charCode)
+                        //65 ~ 90 Uppercase
+                        if(charCode <= 90){
+                            charCode += n;
+                            if(charCode > 90) charCode -= 26;
+
+                            console.log("New: "+v+charCode)
+                        }
+                        //97 ~ 122 Lowercase
+                        else{
+                            charCode += n;
+                            if(charCode > 122){
+                                charCode -= 26;
+                            } ;
+                        }
+                        answer += String.fromCharCode(charCode)
+                    }
+                }
+            )
+            return answer;
+        }
+
+        // solution("AB",1)
+        solution("a B z",4) //e F d
+    </script>
+</body>
+</html>

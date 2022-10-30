@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        //Grouping objects by a property
         const people = [
             { name: "Alice", age: 21 },
             { name: "Max", age: 20 },
@@ -28,8 +29,47 @@
                 // 이전 생성 기준배열(curGroup)과 함께 value로 저장.
             }, {});
         }
-
         const groupedPeople = groupBy(people, "age");
+
+    // Concatenating arrays contained in an array of objects using the spread syntax and initialValue
+    //(initialValue를 사용하여 객체 배열에 포함된 배열 연결)
+        const friends = [
+            {
+                name: "Anna",
+                books: ["Bible", "Harry Potter"],
+                age: 21,
+            },
+            {
+                name: "Bob",
+                books: ["War and peace", "Romeo and Juliet"],
+                age: 26,
+            },
+            {
+                name: "Alice",
+                books: ["The Lord of the Rings", "The Shining"],
+                age: 18,
+            },
+        ];
+
+        const allbooks = friends.reduce(
+            (previousValue, currentValue) => [...previousValue, ...currentValue.books],
+            ["Alphabet"],
+        );
+
+
+        // Remove duplicate items in an array (배열에서 중복 항목 제거)
+        const myArray = ["a", "b", "a", "b", "c", "e", "e", "c", "d", "d", "d", "d"];
+        const myArrayWithNoDuplicates = myArray.reduce(
+            (previousValue, currentValue) => {
+                if (!previousValue.includes(currentValue)) {
+                    return [...previousValue, currentValue];
+                }
+                return previousValue;
+            },
+            [],
+        );
+
+        console.log(myArrayWithNoDuplicates);
 
     </script>
 </body>
