@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function solution(n, words) {
+        //     var wordsArr = [...words];
+        //     var wordsLength = wordsArr.length;
+        //     var newArr = [...new Set(words)];
+        //     var answer = [];
+
+        //     var tempArr = []
+        //     console.log("Origin Arr : "+wordsArr)
+
+        //     if(wordsArr.length != newArr.length){
+        //         answer = [0,0]
+        //     }
+        
+        //     for(let i = 0; i < n; i++){
+        //         console.log('in array 1D ' + i)
+        //         // for(let j = 0; j < wordsLength; j++){
+        //             tempArr[i+1] = [wordsArr.splice(i*n,1)]                   
+        //         // }
+
+
+        //     }
+
+
+            
+        //     console.log(words)
+        //     console.log(wordsArr)
+        //     console.log(tempArr)
+            
+
+        //     return answer;
+        // }
+        function solution(n, words) {
+            var answer = [];
+            let turn = 1;
+
+            
+            for (let i = 1; i < words.length; i++) {
+                let pass = (words[i][0] === words[i - 1][words[i - 1].length - 1]) && !(words.slice(0, i).includes(words[i]))
+                if (i % n === 0) turn++
+                if (!pass) return [i % n + 1, turn]
+            }
+            return [0, 0];
+        }
+        solution(3, ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]) 
+        // solution(4, [4,4,4,4,4]) 
+    </script>
+</body>
+</html>

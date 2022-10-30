@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(x) {
+            // x < y
+            // x.toString(2).math(/[1]/g).length ==  y.toString(2).math(/[1]/g).length
+            // y = Math.min(...)
+            const y = 0;
+            const xBinary = x.toString(2)//.length
+            const xBinaryLength = xBinary.match(/[1]/g).length
+
+            console.log(xBinary)
+            console.log(xBinaryLength)
+
+            while(true){
+                x++;
+                if(xBinaryLength === x.toString(2).match(/[1]/g).length){
+                    return x
+                    break;
+                }
+            }
+
+
+
+            var answer = 0;
+            return answer;
+        }
+
+        solution(78) 
+
+    </script>
+</body>
+</html>
