@@ -8,32 +8,46 @@
 </head>
 <body>
     <script>
-        function solution(x) {
-            // x < y
-            // x.toString(2).math(/[1]/g).length ==  y.toString(2).math(/[1]/g).length
-            // y = Math.min(...)
-            const y = 0;
-            const xBinary = x.toString(2)//.length
-            const xBinaryLength = xBinary.match(/[1]/g).length
+        function solution(citations) {
 
-            console.log(xBinary)
-            console.log(xBinaryLength)
+            // var answer = 0;
+            // citations.sort((a,b) => a-b);
 
-            while(true){
-                x++;
-                if(xBinaryLength === x.toString(2).match(/[1]/g).length){
-                    return x
-                    break;
-                }
-            }
+            // for(let i =0; i < citations.length; i++){
+            //     console.log(tempArr)
+            //      if(citations[i] > i){
+            // answer++;
+            //      }
+            // }
+//------------
+            // var answer = 0;
+            // let i = 0
+            // let length = 0
+            // while (length >= i) {
 
-
-
+            //     i++
+            //     length = citations.filter(v => v >= i).length;
+            //     console.log(length)
+    
+            // }
+            // answer = i- 1
+            // return answer;
+//------------
             var answer = 0;
-            return answer;
-        }
+            citations.sort((a, b) => b - a);
 
-        solution(78) 
+console.log(citations)
+        
+            while (answer + 1 <= citations[answer]){ 
+                console.log("Index: "+(answer+1)); 
+                console.log( citations[answer]); 
+                answer++;
+            }
+   
+            return answer;
+
+        }
+        solution([3, 0, 6, 1, 5]) 
 
     </script>
 </body>

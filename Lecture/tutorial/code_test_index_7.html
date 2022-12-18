@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>곮프존커머스 코딩테스트 2022-10-31</title>
+</head>
+<body>
+    <script>
+        function solution(gold_prices) {
+            // gold_prices.find(el => el == Math.min([...gold_prices]))
+
+            let newArr = [[]];
+            let answer = [];
+        
+            for(let i = 0; i < gold_prices.length; i++){
+                let tempArr = [];
+
+                for(let j = i+1; j< gold_prices.length; j++){
+                    tempArr.push(gold_prices[j] - gold_prices[i] );
+                    answer.push(gold_prices[j] - gold_prices[i] );
+                }
+                newArr[i] = tempArr
+            }
+            console.log(newArr)
+            
+
+            // let sum = [];
+            // for(let m = 0; m < newArr.length; m++){
+            //     if(newArr[m].length != 0){
+            //         let max  = Math.max(...newArr[m])
+            //         sum.push(max)
+            //     }                
+            // }
+// console.log(answer)
+            let diffArr = [];
+
+            for(let n = 0; n < answer.length; n++){
+                // console.log('in sum loop')
+                for(let m = 3; m < answer.length; m++){
+                    diffArr.push(answer[n]+answer[n-m])
+                }
+                // console.log(diffArr)
+                
+            }
+            
+            // var filterd = answer.filter(Boolean)
+            // console.log(Math.max(...filterd))
+        }
+
+        // solution([2,5,1,3,4])
+        solution([7,2,5,6,1,4,2,8])
+
+    </script>
+</body>
+</html>

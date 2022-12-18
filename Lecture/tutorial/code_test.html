@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+function solution(gold_prices) {
+    //배열 처음부터 작은 수 알아보기.
+    //첫 번째 작은수 뒤로 큰수 찾아보기..(~) MAX(x)
+    //다음 인덱스 넘어가기.
+    //똑같은 작업을 배열 길이
+
+    let newArr = [[]];
+ 
+    for(let i = 0; i < gold_prices.length; i++){
+        let tempArr = [];
+
+        for(let j = i+1; j< gold_prices.length; j++){
+            tempArr.push(gold_prices[j] - gold_prices[i] );
+        }
+        newArr[i] = tempArr
+
+    }
+    let sum = [];
+    for(let m = 0; m < newArr.length; m++){
+        if(newArr[m].length != 0){
+            let max  = Math.max(...newArr[m])
+            sum.push(max)
+        }                
+    }
+
+    let diffArr = [];
+    for(let n = 0; n < sum.length; n++){
+        for(let m = 3; m < sum.length; m++){
+            diffArr.push(sum[n]+sum[n-m])
+        }
+    }
+    
+    var answer = diffArr.filter(Boolean)
+    return Math.max(...answer)    
+}
+    </script>
+</body>
+</html>

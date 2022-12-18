@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(arr) {
+            var answer = 0;
+            const newArr = arr.map(v => primeFactors(v))
+            console.log(newArr)
+
+            // console.log(arr.reduce((a, b) => (a * b) / getGcd(a, b)))
+            // return answer;
+            return arr.reduce((a, b) => (a * b) / getGcd(a, b));
+        }
+
+        function getGcd(a, b) {
+            if (b === 0) return a;
+            return getGcd(b, a % b);
+        }
+
+        function getLcm(arr) {
+            return arr.reduce((a, b) => (a * b) / getGcd(a, b));
+        }
+
+
+        function primeFactors(num){
+            let arr = []
+            let i = 2;
+            while(true){
+                if(num === 1){
+                    break;
+                }
+                else if(num % i === 0){
+                    arr = [...arr, i]
+                    num = num / i
+                    if(num === 1){
+                        break;
+                    }
+                } else{
+                    i++;
+                }   
+            }
+
+            return [...arr];
+
+        }
+        function primeFactors_2(n){ //이해안됨..
+            while (num % 2 == 0) {
+                num = num / 2;
+            }
+            // 이제 n은 홀수 -> 이미 2의 배수를 판별했기때문에 2씩 증가시킬 수 있음
+            for (const i = 3; i*i <= num; i = i+2){
+                while(num % 1 == 0){
+                    num = num / i;
+                }
+            }
+        }
+        function primeFactors_3(n){
+            let i = 2;
+            while(true){
+                if(+input === 1){
+                    break;
+                }
+                else if(+input % i === 0){
+                    input = input / i
+                    console.log(i);
+                    if(input === 1){
+                        break;
+                    }
+                }else{
+                    i++;
+                }   
+            }
+        }
+        solution([2,6,8,14]) 
+
+    </script>
+</body>
+</html>
